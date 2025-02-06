@@ -185,3 +185,58 @@ b2d25d50948b   mongo     "docker-entrypoint.s…"   About an hour ago   Up 10 se
  ✔ Container docker_compose-mongodb-1        Removed                                            
  ✔ Network docker_compose_default            Removed 
   ```
+
+start codes ..........
+## Day 4️⃣ - Docker Build 🏗
+
+### 🏗 Docker Build creates a Docker image of a project.
+
+### 📜 Create a `Dockerfile` in the project directory (e.g., `/docker_flask/Dockerfile`)
+```dockerfile
+FROM python:3-alpine3.11  
+WORKDIR /
+# Copy source code to destination
+COPY . /app
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 3000
+CMD ["python", "main.py"]
+```
+
+---
+
+### ▶️ Build a Docker Image where the `Dockerfile` exists
+```sh
+docker build -t mallickboy/flask:0.0.1.RELEASE .
+```
+**Output:**
+```sh
+[+] Building 15.2s (10/10) FINISHED 
+ => [internal] load build definition from Dockerfile                                   0.0s
+ => => transferring dockerfile: 184B                                                   0.0s
+......
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3wg1zmulf0mmi61pzf393cgfd
+```
+
+---
+
+### ▶️ Run the Container and Start the Application
+```sh
+docker container run -d -p 4000:3000 --name mallickboy_flask mallickboy/flask:0.0.1.RELEASE
+```
+
+---
+
+### 📤 Push the Image to DockerHub  
+```sh
+docker container stop mallickboy_flask
+docker push mallickboy/flask:0.0.1.RELEASE
+```
+
+---
+
+### 📥 Pull the Image from DockerHub (on another system or fresh setup)
+```sh
+docker pull mallickboy/flask:0.0.1.RELEASE
+```
+end ..........
+
