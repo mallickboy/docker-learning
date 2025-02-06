@@ -186,7 +186,7 @@ b2d25d50948b   mongo     "docker-entrypoint.s…"   About an hour ago   Up 10 se
  ✔ Network docker_compose_default            Removed 
   ```
 
-start codes ..........
+
 ## Day 4️⃣ - Docker Build 🏗
 
 ### 🏗 Docker Build creates a Docker image of a project.
@@ -238,5 +238,5 @@ docker push mallickboy/flask:0.0.1.RELEASE
 ```sh
 docker pull mallickboy/flask:0.0.1.RELEASE
 ```
-end ..........
+
 
